@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="POST" action="{{ url_for('add_pet') }}">
+        {{ form.csrf_token }}
+        {{ form.hidden_tag() }}
+        {{ form.name.label }}:
+        {{ form.name }}
+        <br>
+        {{ form.species.label }}:
+        {{ form.species }}
+        <br>
+        {{ form.photo_url.label }}:
+        {{ form.photo_url }}
+        <br>
+        {{ form.age.label }}:
+        {{ form.age }}
+        <br>
+        {{ form.notes.label }}:
+        {{ form.notes }}
+        <br>
+        {{ form.submit }}
+    </form>
+{% endblock %}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Adoption Agency Assignment{% endblock %}</title>
+</head>
+<body>
+    <h1><a href="{{ url_for('homepage') }}">Adoption Agency</a></h1>
+    
+    {% block content %}
+    {% for pet in pets %}
+    <ul>
+        <li><a href="{{ url_for('pet_profile', pet_id=pet.id) }}">{{ pet.name }} </a></li>
+    </ul>
+    {% endfor %}
+    <a class="btn btn-primary" href="{{ url_for('add_pet') }}">Add a Pet</a>
+    {% endblock %}
+</body>
+</html>

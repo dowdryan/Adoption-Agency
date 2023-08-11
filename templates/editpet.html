@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Edit {{ pet.name }}</h1>
+    <form method="POST" action="{{ url_for('edit_pet', pet_id=pet.id) }}">
+        {{ form.csrf_token }}
+        {{ form.hidden_tag() }}
+        {{ form.name.label }} {{ form.name }}
+        <br>
+        {{ form.species.label }} {{ form.species }}
+        <br>
+        {{ form.photo_url.label }} {{ form.photo_url }}
+        <br>
+        {{ form.age.label }} {{ form.age }}
+        <br>
+        {{ form.notes.label }} {{ form.notes }}
+        <br>
+        {{ form.available.label }} {{ form.available }}
+        <br>
+        {{ form.submit }}
+    </form>
+{% endblock %}
